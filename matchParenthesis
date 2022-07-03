@@ -1,0 +1,37 @@
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+         stack<int>str;
+        string ans="";
+        int curr=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s[i]=='(')
+            {
+                curr++;
+                str.push(s[i]);
+                if(curr>=2)
+                {
+                    ans+='(';
+                }
+            }
+            else{
+                if(curr>=2 and s[i]==')' )
+                {
+                    if(str.top()=='(')
+                    {
+                        ans+=')';
+                        str.pop();
+                        curr--;
+                    }
+                }
+               else if(curr==1)
+               {
+                   curr=0;
+                   str.pop();
+               }
+            }
+        }
+        return ans;
+    }
+};
