@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        map<int,int> sol;
+        vector<int> a;
+        for(int i=0;i<nums.size();++i) {
+            if(sol.count(target - nums[i])) {
+                a.push_back(sol[target - nums[i]]);
+                a.push_back(i);
+                return a;
+            } else sol[nums[i]] = i;
+        }
+        return a;
+    }
+};
