@@ -1,0 +1,10 @@
+class Solution(object):
+    def findMin(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        for k,v in enumerate(nums):
+            if v < nums[k-1]:
+                break
+        return v
